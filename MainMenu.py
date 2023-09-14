@@ -1,11 +1,13 @@
 from tkinter import *
 from managers.SpeechToTextManager import SpeechToTextManager
 from managers.TranslatorManager import TranslatorManager
+import time
 
 def withoutCommand():
     print("")
 
 def speechToTextFile():
+    initial_time = time.time()
     stt = SpeechToTextManager()
     filename = "audio_file_1.wav"
     text = stt.convert_speech_to_text_file(audio_file_path=filename)
@@ -13,8 +15,10 @@ def speechToTextFile():
 
     mainTraductor = TranslatorManager()
     mainTranslate = mainTraductor.translate(text, language_destiny='pt')
+    final_time = time.time()
     print(f"Original text: {text}")
     print(f"Translated: {mainTranslate}")
+    print(f"The processing time was {int(final_time - initial_time)} seconds")
 
 def speechToTextMicrophone():
     stt = SpeechToTextManager()
