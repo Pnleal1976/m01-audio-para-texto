@@ -24,7 +24,7 @@ class SpeechToTextManager:
             if microphone_input:
                 with sr.Microphone() as source:
                     print("Please say aomething...")
-                    audio = self.recognizer.listen(source)
+                    audio = self.recognizer.listen(source, timeout=5)
                     text = self.recognizer.recognize_google(audio, language="pt-BR")
             else:
                 raise ValueError("You should activate your microphone.")
