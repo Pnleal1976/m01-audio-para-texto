@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 .vscode/
 
+text_files(translated)
+
 # C extensions
 *.so
 
